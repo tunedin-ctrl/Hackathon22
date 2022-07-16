@@ -1,0 +1,23 @@
+{
+  "name": "hackathon22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tunedin-ctrl/Hackathon22.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tunedin-ctrl/Hackathon22/issues"
+  },
+  "homepage": "https://github.com/tunedin-ctrl/Hackathon22#readme",
+  "dependencies": {
+    "google-search-results-nodejs": "^2.1.0",
+    "react": "^18.2.0"
+  }
+}
