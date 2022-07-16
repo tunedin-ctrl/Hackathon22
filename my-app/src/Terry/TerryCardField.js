@@ -12,15 +12,16 @@ import Typography from '@mui/material/Typography';
 class TerryCardField extends Card    {
     constructor(_title, _url, _snippet, _rank)   {
         super();
-        this.state = {
-            title: {_title},
-            urls: {_url},
-            snippets: {_snippet},
-            rank: {_rank}
-        };
+        this.setFields(_title, _url, _snippet, _rank);
     }
-    setInputLine(title)  {
-      this.title = title;
+
+    setFields(_title, _url, _snippet, _rank, )  {
+      this.state = {
+        title: {_title},
+        urls: {_url},
+        snippets: {_snippet},
+        rank: {_rank}
+      };
     }
     
 
@@ -45,22 +46,3 @@ class TerryCardField extends Card    {
 }
 
 export default TerryCardField;
-
-export function f(title, urls) {
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {urls}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-  );
-}

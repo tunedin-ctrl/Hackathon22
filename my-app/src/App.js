@@ -3,6 +3,11 @@ import './App.css';
 import TerryCard from './Terry/TerryCard.js'
 
 function App() {
+  /**
+   * TODO: 
+   * Add TerryCard window to app
+   * Implement load_data function in LoadTerryCard.js
+   */
   return (
     <div className="App">
       <header className="App-header">

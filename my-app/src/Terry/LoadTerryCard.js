@@ -47,7 +47,9 @@ function LoadTerryCard({ load_data, ...props }) {
 
   }
   
-
+  /**
+   * What to return (?)
+   */
   return(
     <Container component="main" maxWidth="sm">
       <Box boxShadow={1}>
@@ -56,43 +58,10 @@ function LoadTerryCard({ load_data, ...props }) {
         </Typography>
         {
           loading
-            ? <div className="Card"></div> // When loading, show blank card
-            : <Card newTerryCard onmouseup={() => handleStartQuery()}>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="input_line"
-                label="Email"
-                name="email"
-                type="text"
-                autoFocus
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-             
-              <Button type="submit" fullWidth variant="contained" color="primary">
-                Sign In
-                </Button>
-              <Grid container direction="column" alignItems="center">
-                <Grid item>
-                  <br />
-                  <Link href="/register" variant="body1">
-                    {"Don't have an account? Register"}
-                  </Link>
-                </Grid>
-              </Grid>
-            </Card>
+            ? <div className="TerryCard"></div> 
+            : <TerryCard newTerryCard onmouseup={() => handleStartQuery()}>
+                
+            </TerryCard>
         }
       </Box>
     </Container>
