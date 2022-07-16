@@ -5,6 +5,7 @@ const fileName = "data.json";
 const dataFile = path.resolve(process.cwd()) + `\\${fileName}`;
 
 import express from 'express';
+import { url } from 'inspector';
 const app = express();
 
 app.use('*', express.json());
@@ -16,7 +17,6 @@ app.listen(3001, () => {
 
 app.post('/search', function (req, res) {
 	const { searchString } = req.body;
-
 	
 	const search = new SerpApi.GoogleSearch("398b46ced9ed6a813762b6c29ce6d5593ed51c080a5e95273453978288232951")
 	search.json({
