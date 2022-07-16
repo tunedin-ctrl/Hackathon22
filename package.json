@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/tunedin-ctrl/Hackathon22#readme",
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.0",
     "google-search-results-nodejs": "^2.1.0",
     "react": "^18.2.0"
   }

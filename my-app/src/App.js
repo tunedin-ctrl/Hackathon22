@@ -1,6 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-import QueryCard from './Componenets/QueryCard.js'
+import React from 'react';
+import axios from 'axios';
+import {
+  Box,
+  Container,
+  Typography,
+} from '@material-ui/core';
+import QueryCard from './Componenets/QueryCardField';
+
 
 function App() {
   /**
@@ -8,23 +15,38 @@ function App() {
    * Add QueryCard window to app
    * Implement load_data function in LoadQueryCard.js
    */
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   const [loading, setLoading] = React.useState(false);
+   var query_string_state = null;
+   var query = new QueryCard(); 
+ 
+   function handleDoubleClick () {
+     const query_string = window.getSelection.toString()
+ 
+     // setLoading(true);
+   
+     axios.post(`/search`, { query_string })
+       .then((response) => {
+         console.log(response);
+         // load_data(new_terry_card, response.data);
+       })
+       .catch((err) => { console.log(err) })
+       .finally(() => setLoading(false));
+  }
+   return(
+    <Container component="main" maxWidth="sm">
+      <Box boxShadow={1}>
+        <Typography component="h1" variant="h2">
+          Terry Card
+        </Typography>
+        {
+          loading
+            ? <div className="QueryCard"></div> 
+            : <QueryCard newQueryCard onDoubleClick = {() => handleDoubleClick()}>
+                
+            </QueryCard>
+        }
+      </Box>
+    </Container>
   );
 }
  
