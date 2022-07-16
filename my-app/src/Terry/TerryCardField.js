@@ -10,17 +10,17 @@ import Typography from '@mui/material/Typography';
 
 
 class TerryCardField extends Card    {
-    constructor(_input_line, _url, _snippet, _rank)   {
+    constructor(_title, _url, _snippet, _rank)   {
         super();
         this.state = {
-            input_line: {_input_line},
+            title: {_title},
             urls: {_url},
             snippets: {_snippet},
             rank: {_rank}
         };
     }
-    setInputLine(input_line)  {
-      this.input_line = input_line;
+    setInputLine(title)  {
+      this.title = title;
     }
     
 
@@ -29,7 +29,7 @@ class TerryCardField extends Card    {
           <Card sx={{ maxWidth: 345 }}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {input_line}
+                {title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {urls}
@@ -46,12 +46,12 @@ class TerryCardField extends Card    {
 
 export default TerryCardField;
 
-export function f(input_line, urls) {
+export function f(title, urls) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {input_line}
+          {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {urls}

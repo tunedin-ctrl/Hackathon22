@@ -15,7 +15,7 @@ import TerryCard from './TerryCardField';
 /**
  * 
  * @param {*} load_data : Function that takes two arguments. 
- * Loads TerryCardField from HTTP response data.
+ * Loads TerryCard from HTTP response data.
  * @returns 
  */
 function LoadTerryCard({ load_data, ...props }) {
@@ -28,7 +28,7 @@ function LoadTerryCard({ load_data, ...props }) {
    */
   const [loading, setLoading] = React.useState(false);
   var query_string_state = null;
-  var new_terry_card = new TerryCardField(); 
+  var new_terry_card = new TerryCard(); 
 
   function handleStartQuery() {
     query_string = window.getSelection.toString()
@@ -38,8 +38,8 @@ function LoadTerryCard({ load_data, ...props }) {
     axios.post(`/search`, { query_string })
       .then((response) => {
         console.log(response);
-        load_data(new_terry_card, response.data);
-        props.history.push('/dashboard');
+        // load_data(new_terry_card, response.data);
+        props.history.push('/dashboard'); // TODO: Implement dashboard
       })
       .catch((err) => { })
       .finally(() => setLoading(false));
