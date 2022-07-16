@@ -1,0 +1,10 @@
+.main-footer {
+    color: white;
+    background-color: #060b26;
+    padding-top: 2em;
+    position: absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    width: 125%;
+  }
