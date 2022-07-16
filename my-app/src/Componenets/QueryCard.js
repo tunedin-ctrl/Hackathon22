@@ -1,4 +1,4 @@
-class TerryCard    {
+class QueryCard    {
     constructor() {
         this.state = {
             fields: [],
@@ -10,7 +10,7 @@ class TerryCard    {
     }
 
     /**
-     * Render the terryCardFields individually on a TerryCard
+     * Render the QueryCardFields individually on a QueryCard
      */
     render()    {
         for (let i = 0; i < this.state.fields.length; ++i)  {

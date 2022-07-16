@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import TerryCard from './Terry/TerryCard.js'
+import QueryCard from './Componenets/QueryCard.js'
 
 function App() {
   /**
    * TODO: 
-   * Add TerryCard window to app
-   * Implement load_data function in LoadTerryCard.js
+   * Add QueryCard window to app
+   * Implement load_data function in LoadQueryCard.js
    */
   return (
     <div className="App">

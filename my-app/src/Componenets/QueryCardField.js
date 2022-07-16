@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
-class TerryCardField extends Card    {
+class QueryCardField extends QueryCard    {
     constructor(_title, _url, _snippet, _rank)   {
         super();
         this.setFields(_title, _url, _snippet, _rank);
@@ -45,4 +45,4 @@ class TerryCardField extends Card    {
   }
 }
 
-export default TerryCardField;
+export default QueryCardField;

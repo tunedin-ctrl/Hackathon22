@@ -10,15 +10,15 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import TerryCard from './TerryCardField';
+import QueryCard from '../Componenets/QueryCardField';
 
 /**
  * 
- * @param {*} load_data : Function that takes two arguments. 
- * Loads TerryCard from HTTP response data.
+ * \@param {*} load_data : Function that takes two arguments. 
+ * Loads QueryCard from HTTP response data.
  * @returns 
  */
-function LoadTerryCard({ load_data, ...props }) {
+function ExtensionPage() {
   /**
    * Refactoring:
    * 
@@ -28,9 +28,9 @@ function LoadTerryCard({ load_data, ...props }) {
    */
   const [loading, setLoading] = React.useState(false);
   var query_string_state = null;
-  var new_terry_card = new TerryCard(); 
+  var query = new QueryCard(); 
 
-  function handleStartQuery() {
+  function handleClick () {
     query_string = window.getSelection.toString()
 
     // setLoading(true);
@@ -39,9 +39,8 @@ function LoadTerryCard({ load_data, ...props }) {
       .then((response) => {
         console.log(response);
         // load_data(new_terry_card, response.data);
-        props.history.push('/dashboard'); // TODO: Implement dashboard
       })
-      .catch((err) => { })
+      .catch((err) => { console.log(err) })
       .finally(() => setLoading(false));
 
 
@@ -58,10 +57,10 @@ function LoadTerryCard({ load_data, ...props }) {
         </Typography>
         {
           loading
-            ? <div className="TerryCard"></div> 
-            : <TerryCard newTerryCard onmouseup={() => handleStartQuery()}>
+            ? <div className="QueryCard"></div> 
+            : <QueryCard newQueryCard onmouseup={() => handleStartQuery()}>
                 
-            </TerryCard>
+            </QueryCard>
         }
       </Box>
     </Container>
