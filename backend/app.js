@@ -1,25 +1,23 @@
-
-const fs = require('fs');
-const path = require('path');
+import SerpApi from 'google-search-results-nodejs';
+import fs from 'fs';
+import path from 'path';
 const fileName = "data.json";
 const dataFile = path.resolve(process.cwd()) + `\\${fileName}`;
 
-
+import express from 'express';
+const app = express();
 
 app.use('*', express.json());
+
 // start server
-app.listen(3000, () => {
-	console.log(`⚡️ Server listening on port 3000`);
+app.listen(3001, () => {
+	console.log(`⚡️ Server listening on port 3001`);
 });
 
-
-
-
-const express = require('express');
-app.post('/', function (req, res) {
+app.post('/search', function (req, res) {
 	const { searchString } = req.body;
 
-	const SerpApi = require('google-search-results-nodejs')
+	
 	const search = new SerpApi.GoogleSearch("398b46ced9ed6a813762b6c29ce6d5593ed51c080a5e95273453978288232951")
 	search.json({
 		q: searchString, 
@@ -55,6 +53,7 @@ function parseSearchResults(result) {
     });
     searchWeb = searchWeb.slice(0, 5);
     console.log(searchWeb);
+	return searchWeb;
 }
 
 
