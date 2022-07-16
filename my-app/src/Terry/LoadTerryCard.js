@@ -10,28 +10,43 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import TerryCard from './TerryCard';
+import TerryCard from './TerryCardField';
 
-
-function LoadTerryCard({ f, ...props }) {
+/**
+ * 
+ * @param {*} load_data : Function that takes two arguments. 
+ * Loads TerryCardField from HTTP response data.
+ * @returns 
+ */
+function LoadTerryCard({ load_data, ...props }) {
+  /**
+   * Refactoring:
+   * 
+   * - handling of state variables
+   * - Define function input
+   * 
+   */
   const [loading, setLoading] = React.useState(false);
-  const [funny_response_state] = null;
+  var query_string_state = null;
+  var new_terry_card = new TerryCardField(); 
 
   function handleStartQuery() {
-    funny_response.set() = window.getSelection.toString()
+    query_string = window.getSelection.toString()
 
     // setLoading(true);
   
-    axios.post(`/search`, { funny_response })
+    axios.post(`/search`, { query_string })
       .then((response) => {
         console.log(response);
-        f(response.data);
+        load_data(new_terry_card, response.data);
         props.history.push('/dashboard');
       })
       .catch((err) => { })
       .finally(() => setLoading(false));
+
+
   }
-  newTerryCard = new TerryCardField(); 
+  
 
   return(
     <Container component="main" maxWidth="sm">
@@ -42,7 +57,7 @@ function LoadTerryCard({ f, ...props }) {
         {
           loading
             ? <div className="Card"></div> // When loading, show blank card
-            : <TerryCardField newTerryCard onmounseup={() => handleStartQuery()}>
+            : <Card newTerryCard onmouseup={() => handleStartQuery()}>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -77,7 +92,7 @@ function LoadTerryCard({ f, ...props }) {
                   </Link>
                 </Grid>
               </Grid>
-            </form>
+            </Card>
         }
       </Box>
     </Container>

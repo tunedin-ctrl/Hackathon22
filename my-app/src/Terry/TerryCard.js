@@ -1,66 +1,20 @@
-/*
-Card function 
-*/
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-
-
-class TerryCardField extends Card    {
-    constructor(_input_line, _url, _snippet, _rank)   {
-        super();
+class TerryCard    {
+    constructor() {
         this.state = {
-            input_line: {_input_line},
-            urls: {_url},
-            snippets: {_snippet},
-            rank: {_rank}
+            fields: [],
         };
     }
-    setInputLine(input_line)  {
-      this.input_line = input_line;
+
+    addField(field)  {
+        this.state.fields.push(field);
     }
-    
 
-  render()    {
-      return (
-          <Card sx={{ maxWidth: 345 }}>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {input_line}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {urls}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-        );
-  }
-}
-
-export default TerryCardField;
-
-export function f(input_line, urls) {
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {input_line}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {urls}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-  );
+    /**
+     * Render the terryCardFields individually on a TerryCard
+     */
+    render()    {
+        for (let i = 0; i < this.state.fields.length; ++i)  {
+            this.state.fields[i].render();
+        }
+    }
 }
