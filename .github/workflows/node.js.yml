@@ -22,6 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
+      env:
+        CI: true
+        API_KEY: ${{ GOOGLE_API }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
@@ -29,3 +32,4 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    
