@@ -6,7 +6,6 @@ import {
   Container,
   Typography,
 } from '@material-ui/core';
-import QueryCard from './Componenets/QueryCardField';
 
 
 function App() {

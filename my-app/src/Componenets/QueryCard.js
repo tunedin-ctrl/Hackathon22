@@ -6,17 +6,12 @@ import IconButton from '@material-ui/core/IconButton'
 import { DeleteOutlined } from '@material-ui/icons'
 import { Typography, Button } from '@material-ui/core'
 
-export default function InvoiceCard( {invoice, handleDelete, handleRender, loading} ) {
+export default function InvoiceCard( {query, handleDoubleClick, loading} ) {
     return (
         <div>
             <Card variant="outlined">
-            <CardHeader onSubmit={handleRender}
-                    action={
-                        <IconButton onClick={() => handleDelete(invoice.invoice_id)}>
-                            <DeleteOutlined/>
-                        </IconButton>
-                    }
-                    title={invoice.filename}
+            <CardHeader onDoubleClick={handleDoubleClick}
+                    title={query.name}
                     subheader={invoice.time_stamp}
                 />
                 <CardContent>
