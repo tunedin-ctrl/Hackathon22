@@ -17,7 +17,7 @@ function App() {
  
      setLoading(true);
     // setqueries("hi")
-     axios.post(`http://localhost:3001/search/search`, { searchString })
+     axios.post(`/search`, { searchString })
        .then((response) => {
          console.log(response);
          setqueries(response.data)
@@ -26,7 +26,7 @@ function App() {
        .finally(() => setLoading(false));
   }
    return(
-    <div onMouseUp={handleMouseUp}> 
+    <div onMouseUp={handleMouseUp}> hi
       {queries.map(query => (
         <QueryCard query={query} />
       ))}
