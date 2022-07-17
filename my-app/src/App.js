@@ -5,8 +5,9 @@ import {
   Box,
   Container,
   Typography,
+  Grid
 } from '@material-ui/core';
-
+import QueryCard from './Componenets/QueryCard'
 
 function App() {
   /**
@@ -15,9 +16,7 @@ function App() {
    * Implement load_data function in LoadQueryCard.js
    */
    const [loading, setLoading] = React.useState(false);
-   var query_string_state = null;
-   var query = new QueryCard(); 
- 
+   const [queries, setqueries] = React.useState([]);
    function handleDoubleClick () {
      const query_string = window.getSelection.toString()
  
@@ -26,7 +25,7 @@ function App() {
      axios.post(`/search`, { query_string })
        .then((response) => {
          console.log(response);
-         // load_data(new_terry_card, response.data);
+         setqueries(response.data)
        })
        .catch((err) => { console.log(err) })
        .finally(() => setLoading(false));
@@ -35,14 +34,16 @@ function App() {
     <Container component="main" maxWidth="sm">
       <Box boxShadow={1}>
         <Typography component="h1" variant="h2">
-          Terry Card
+          Query Card
         </Typography>
         {
           loading
             ? <div className="QueryCard"></div> 
-            : <QueryCard newQueryCard onDoubleClick = {() => handleDoubleClick()}>
-                
-            </QueryCard>
+            : <Grid container spacing={2}>
+            {queries.map(query => (
+                <QueryCard query={query} handleDoubleClick={handleDoubleClick}/>
+            ))}
+          </Grid>
         }
       </Box>
     </Container>
