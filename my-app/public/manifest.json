@@ -18,5 +18,15 @@
       "./jquery.js"
     ],
     "run_at": "document_end"
-  }]
+  }],
+  "commands": {
+    "log-search": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Run \"foo\" on the current page."
+  },
+  "run_at": "document_end"
+  }
 }
