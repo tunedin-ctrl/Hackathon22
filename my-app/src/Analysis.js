@@ -42,4 +42,3 @@ function parseSearchResults(result) {
     fs.writeFileSync(dataFile, JSON.stringify(searchWeb));
 }
 
-

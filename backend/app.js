@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 const fileName = "data.json";
 const dataFile = path.resolve(process.cwd()) + `\\${fileName}`;
+import cors from 'cors';
 
 import express from 'express';
 import { url } from 'inspector';
@@ -11,10 +12,10 @@ const app = express();
 app.use('*', express.json());
 
 // start server
-app.listen(3001, () => {
-	console.log(`⚡️ Server listening on port 3001`);
+app.listen(8080, () => {
+	console.log(`⚡️ Server listening on port 3005`);
 });
-
+app.use(cors({origin: true}));
 app.post('/search', function (req, res) {
 	const { searchString } = req.body;
 	
@@ -55,7 +56,4 @@ function parseSearchResults(result) {
     console.log(searchWeb);
 	return searchWeb;
 }
-
-
-
 
