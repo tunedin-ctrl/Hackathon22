@@ -1,9 +1,6 @@
 import './App.css';
 import React from 'react';
 import axios from 'axios';
-import {
-  Grid
-} from '@material-ui/core';
 import QueryCard from './Componenets/QueryCard'
 
 function App() {
@@ -15,7 +12,7 @@ function App() {
    const [loading, setLoading] = React.useState(false);
    const [queries, setqueries] = React.useState([]);
 
-   function handleDoubleClick () {
+   function handleMouseUp () {
      const searchString = window.getSelection.toString()
  
      setLoading(true);
@@ -29,16 +26,11 @@ function App() {
        .finally(() => setLoading(false));
   }
    return(
-  
-    loading
-      ?<Grid container spacing={2}>
+    <div onMouseUp={handleMouseUp}> 
       {queries.map(query => (
-          <QueryCard query={query} handleDoubleClick={handleDoubleClick}/>
-        ))}
-      </Grid> 
-      : 
-      <h1>hi</h1>
-
+        <QueryCard query={query} />
+      ))}
+    </div>
   );
 }
  

@@ -4,7 +4,7 @@ import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import { Typography } from '@material-ui/core'
 
-export default function InvoiceCard( {query} ) {
+export default function QueryCard( {query} ) {
     return (
         <div>
             <Card variant="outlined">
