@@ -21,32 +21,26 @@ function App() {
      const query_string = window.getSelection.toString()
  
      // setLoading(true);
-   
-     axios.post(`/search`, { query_string })
-       .then((response) => {
-         console.log(response);
-         setqueries(response.data)
-       })
-       .catch((err) => { console.log(err) })
-       .finally(() => setLoading(false));
+    setqueries("hi")
+    //  axios.post(`/search`, { query_string })
+    //    .then((response) => {
+    //      console.log(response);
+    //      setqueries(response.data)
+    //    })
+    //    .catch((err) => { console.log(err) })
+    //    .finally(() => setLoading(false));
   }
    return(
-    <Container component="main" maxWidth="sm">
-      <Box boxShadow={1}>
-        <Typography component="h1" variant="h2">
-          Query Card
-        </Typography>
-        {
+        
           loading
-            ? <div className="QueryCard"></div> 
-            : <Grid container spacing={2}>
+            ?<Grid container spacing={2}>
             {queries.map(query => (
                 <QueryCard query={query} handleDoubleClick={handleDoubleClick}/>
-            ))}
-          </Grid>
-        }
-      </Box>
-    </Container>
+              ))}
+            </Grid> 
+
+            : 
+            null
   );
 }
  
